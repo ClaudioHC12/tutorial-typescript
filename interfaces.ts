@@ -24,10 +24,11 @@ const medico = {
 const imprimirPersonal = (objeto: Persona) => {
     console.log(objeto);
 };
-imprimirPersonal(medico);
+//imprimirPersonal(medico);
 
 const imprimirPersonalSalario = (objeto: salario) => {
     console.log(objeto.sueldoDiario())
 };
-imprimirPersonalSalario(medico);
+//imprimirPersonalSalario(medico);
 
+let listaObjetos: Persona[] = [];
