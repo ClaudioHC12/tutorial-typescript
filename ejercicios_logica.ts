@@ -32,18 +32,48 @@ let nuevaLista = listaArticulos.map((x) => {
 
     let iva = (x.precio * 1.03) / 100;
 
-    return{
-        nombre: x.nombre, 
-        precio: x.precio, 
-        caducidad: x.fechaCaducidad, 
+    return {
+        nombre: x.nombre,
+        precio: x.precio,
+        caducidad: x.fechaCaducidad,
         diasRestantes: diffDays,
         descuento: valorPorcentaje,
         total: (x.precio - valorPorcentaje + iva)
     };
 });
-console.log(nuevaLista);
+//console.log(nuevaLista);
 
 
 ///ejercicio de logica
 //obtener la suma mayor de 2 valores en un array
-let arrayNumeros:number[] = [1,3,4,5,9];//resultado 5+9=14
+let arrayNumeros: number[] = [1, 3, 4, 5, 9];//resultado 5+9=14
+
+function sumaMayorValor(array: number[]): number {
+    let valorMayor: number = array[0] + array[1];
+    for (let index = 2; index < array.length; index++) {
+        if(valorMayor < (array[index] + array[index-1]) ){
+            valorMayor = array[index] + array[index-1];
+        }
+    }
+    return valorMayor;
+}
+console.log(sumaMayorValor(arrayNumeros));
+
+
+//Funcion que recibe una string como parametro, imprime las 
+//vocales que contiene y retornar la cantidad
+//Ejemplo:claudio   resultado => 4 a u i o
+function validarVocales(cadena: string): number {
+    let vocales: string[] = ['a', 'e', 'i', 'o', 'u'];
+    let acu: number = 0;
+    for (let index = 0; index < cadena.length; index++) {
+
+        let bol = vocales.some(x => (x == cadena[index]));
+        if (bol) {
+            console.log(cadena[index]);
+            acu++;
+        }
+    }
+    return acu;
+}
+//console.log(validarVocales('claudio'));
