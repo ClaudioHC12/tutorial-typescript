@@ -51,13 +51,13 @@ let arrayNumeros: number[] = [1, 3, 4, 5, 9];//resultado 5+9=14
 function sumaMayorValor(array: number[]): number {
     let valorMayor: number = array[0] + array[1];
     for (let index = 2; index < array.length; index++) {
-        if(valorMayor < (array[index] + array[index-1]) ){
-            valorMayor = array[index] + array[index-1];
+        if (valorMayor < (array[index] + array[index - 1])) {
+            valorMayor = array[index] + array[index - 1];
         }
     }
     return valorMayor;
 }
-console.log(sumaMayorValor(arrayNumeros));
+//console.log(sumaMayorValor(arrayNumeros));
 
 
 //Funcion que recibe una string como parametro, imprime las 
@@ -77,3 +77,34 @@ function validarVocales(cadena: string): number {
     return acu;
 }
 //console.log(validarVocales('claudio'));
+
+
+//Serie de Fibonacci
+//serieDeFibonacci(9);
+function serieDeFibonacci(n: number): void {
+    let serieFibonacci: number[] = [1, 1];
+    for (let index = 2; index < n; index++) {
+        serieFibonacci.push(serieFibonacci[index - 1] + serieFibonacci[index - 2]);
+    }
+    let resultado: string = '';
+    for (let index = 0; index < serieFibonacci.length; index++) {
+        resultado = (index == 0) ? resultado + (serieFibonacci[index]) :
+            resultado + ', ' + (serieFibonacci[index]);
+    }
+    console.log(resultado);
+}
+
+//serieFibonacciV2(9);
+function serieFibonacciV2(n: number):void {
+    let primero: number = 1;
+    let segundo: number = 1;
+    let resultado: string = primero + ', ' + segundo;
+    for (let index = 2; index < n; index++) {
+        let suma: number = primero + segundo;
+        primero = parseInt(segundo.toString());
+        segundo = parseInt(suma.toString());
+        resultado += (', ' + suma);
+    }
+    console.log(resultado);
+}
+
