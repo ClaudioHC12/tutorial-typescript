@@ -95,7 +95,7 @@ function serieDeFibonacci(n: number): void {
 }
 
 //serieFibonacciV2(9);
-function serieFibonacciV2(n: number):void {
+function serieFibonacciV2(n: number): void {
     let primero: number = 1;
     let segundo: number = 1;
     let resultado: string = primero + ', ' + segundo;
@@ -108,3 +108,20 @@ function serieFibonacciV2(n: number):void {
     console.log(resultado);
 }
 
+/*
+Funcion que retorne la suma de los dígitos de un numero
+ejemplo:
+    entrada : 	123
+    resultado:	1 + 2 + 3 = 6
+*/
+sumaDigitosNumero(123);
+function sumaDigitosNumero(numero: number): number {
+    let suma: number = 0;
+    let conversion: string = numero.toString();
+    let arregloDigitos: string[] = conversion.split('');
+    arregloDigitos.forEach(x => {
+        suma += parseInt(x);
+    });
+    console.log(suma);
+    return suma;
+}
